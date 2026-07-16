@@ -1,5 +1,12 @@
+
 # 🚀 Mi Primer Workflow con GitHub Actions
 
+![CI Pipeline](https://github.com/aniapalominoq/mi-primer-workflow/actions/workflows/ci.yml/badge.svg)
+
+[ CI Pipeline passing ]   ← verde si todo está bien
+[ CI Pipeline failing ]   ← rojo si algo falló
+
+---
 Mi primer proyecto de CI/CD utilizando GitHub Actions.
 
 ## 📌 Objetivo
