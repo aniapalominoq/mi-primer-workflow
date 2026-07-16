@@ -10,6 +10,8 @@ on:
     branches:
       - main          # también en PRs hacia main
 
+  workflow_dispatch:
+
 # ── JOBS: los trabajos a ejecutar ─────────────────────────────
 jobs:
 
