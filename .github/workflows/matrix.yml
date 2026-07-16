@@ -8,12 +8,13 @@ on:
 
 jobs:
   test:
-    name: Node ${{ matrix.node-version }}
-    runs-on: ubuntu-latest
+    name: Node ${{ matrix.node-version }} - ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
         node-version: [18, 20, 22]
+        os: [ubuntu-latest, windows-latest]
       fail-fast: false   # Continúa aunque una versión falle
 
     steps:
