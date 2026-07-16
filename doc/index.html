@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi primer Deploy | Melania Palomino</title>
+    
+    <!-- Cargamos la fuente Inter para un look moderno -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset de estilos básicos */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Variables de color y diseño (Estilo SaaS Oscuro) */
+        :root {
+            --bg-gradient: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #0f172a 100%);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #6366f1;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Efecto de brillo de fondo */
+        .ambient-glow {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: var(--accent);
+            filter: blur(130px);
+            opacity: 0.25;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Contenedor principal semántico (Glassmorphism) */
+        main {
+            position: relative;
+            z-index: 2;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            max-width: 460px;
+            width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        main:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Encabezado */
+        header {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Badge de estado en verde éxito */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            color: var(--success);
+            padding: 0.4rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--success);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--success);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.75rem;
+        }
+
+        .author-name {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Línea divisoria sutil */
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+            margin: 2rem 0;
+        }
+
+        /* Sección de contenido */
+        section p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Tecnologías utilizadas */
+        .tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Pie de página */
+        footer {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Brillo estético detrás de la tarjeta -->
+    <div class="ambient-glow"></div>
+
+    <!-- Contenedor Semántico Principal -->
+    <main>
+        <header>
+            <div class="status-badge">
+                <span class="pulse-dot"></span>
+                <span>Despliegue Exitoso</span>
+            </div>
+            <h1>🚀 Hola GitHub Pages</h1>
+            <p>Un espacio creado por <span class="author-name">Melania Palomino</span></p>
+        </header>
+
+        <hr>
+
+        <section>
+            <p>
+                Este sitio web minimalista fue diseñado para probar y validar el flujo de automatización e integración continua utilizando <strong>GitHub Actions</strong>. Cada cambio subido se refleja aquí de forma automática.
+            </p>
+            
+            <div class="tags">
+                <span class="tag">⚡ GitHub Actions</span>
+                <span class="tag">📂 GitHub Pages</span>
+                <span class="tag">🎨 HTML Semántico</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Melania Palomino | Construyendo el futuro web</p>
+    </footer>
+
+</body>
+</html>
